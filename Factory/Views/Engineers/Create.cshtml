@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Imagineer
+
+<h4>Add a new Imagineer</h4>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.EngineerName)
+  @Html.TextBoxFor(model => model.EngineerName)
+
+  @Html.LabelFor(model => model.ActiveIdle)
+  @Html.CheckBox("Yes", false)
+
+  @Html.LabelFor(model => model.LastLicensed)
+  @Html.TextBoxFor(model => model.LastLicensed, new { type="date"})
+
+  <input type="submit" value="Add new category" />
+}
+
+<p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
+<p>@Html.ActionLink("Show all categories", "Index")</p>

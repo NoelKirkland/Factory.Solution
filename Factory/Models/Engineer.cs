@@ -15,7 +15,7 @@ namespace Factory.Models
     public int EngineerId { get; set; }
     [DisplayName("Name of Imagineer")]
     public string EngineerName { get; set; }
-    [DisplayName("Is Imagineer currently repairing a This-a-Machine")]
+    [DisplayName("Is Imagineer currently repairing a Thing-a-Machine")]
     public bool ActiveIdle { get; set; }
     [DisplayName("Date of last licence renewal")]
     [DataType(DataType.Date)]

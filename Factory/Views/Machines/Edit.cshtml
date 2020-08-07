@@ -17,7 +17,7 @@
   @Html.DropDownList("StatusTypes")
 
   @Html.LabelFor(model => model.LastInspection)
-  @Html.TextBoxFor(model => model.LastInspection, new { type="date"})
+  @Html.EditorFor(model => model.LastInspection, new { type="date"})
 
   <input type="submit" value="Save" />
 }
