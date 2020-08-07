@@ -28,15 +28,22 @@ namespace Factory.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Imagineer imagineer, int MachineId)
+    public ActionResult Create(Engineer engineer, int MachineId)
     {
-      _db.Imagineers.Add(imagineer);
+      _db.Engineer.Add(engineer);
       if (MachineId != 0)
       {
-        _db.MachineImagineer.Add(new EngineerMachine() { MachineId = MachineId, ImagineerId = imagineer.ImagineerId });
+        _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
       }
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult AddMachine(int id)
+    {
+      Engineer thisEngineer = _db.Engineers.FirstOrDefault(engineers => engineers.EngineerId == id);
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "Name");
+      return View(thisEngineer);
     }
   }
 }

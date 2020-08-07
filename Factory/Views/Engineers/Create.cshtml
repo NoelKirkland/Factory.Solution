@@ -11,7 +11,7 @@
   @Html.TextBoxFor(model => model.EngineerName)
 
   @Html.LabelFor(model => model.ActiveIdle)
-  @Html.CheckBox("Yes", false)
+  @Html.CheckBoxFor(model => model.ActiveIdle, false)
 
   @Html.LabelFor(model => model.LastLicensed)
   @Html.TextBoxFor(model => model.LastLicensed, new { type="date"})
