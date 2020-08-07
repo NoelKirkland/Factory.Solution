@@ -57,8 +57,33 @@ This project will the famous Dr. Sneuss keep track of their engineers, as well a
   6. _Once the following code block has been entered you will close MySQL by running the command `> exit`_
 
 ```
-
-
+    DROP DATABASE IF EXISTS `noel_kirkland`;
+    CREATE DATABASE `noel_kirkland` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+    USE `noel_kirkland`;
+    CREATE TABLE `Engineers` (
+      `EngineerId` int(11) NOT NULL AUTO_INCREMENT,
+      `EngineerName` longtext,
+      `ActiveIdle` bit(1) NOT NULL,
+      `LastLicensed` datetime(6) NOT NULL,
+      PRIMARY KEY (`EngineerId`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    CREATE TABLE `Machines` (
+      `MachineId` int(11) NOT NULL AUTO_INCREMENT,
+      `MachineName` longtext,
+      `Status` int(11) NOT NULL,
+      `LastInspected` datetime(6) NOT NULL,
+      PRIMARY KEY (`MachineId`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+    CREATE TABLE `EngineerMachine` (
+      `EngineerMachineId` int(11) NOT NULL AUTO_INCREMENT,
+      `EngineerId` int(11) NOT NULL,
+      `MachineId` int(11) NOT NULL,
+      PRIMARY KEY (`EngineerMachineId`),
+      KEY `IX_EngineerMachine_EngineerId` (`EngineerId`),
+      KEY `IX_EngineerMachine_MachineId` (`MachineId`),
+      CONSTRAINT `FK_EngineerMachine_Engineers_EngineerId` FOREIGN KEY (`EngineerId`) REFERENCES `engineers` (`EngineerId`) ON DELETE CASCADE,
+      CONSTRAINT `FK_EngineerMachine_Machines_MachineId` FOREIGN KEY (`MachineId`) REFERENCES `machines` (`MachineId`) ON DELETE CASCADE
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 ```
 
 * _Run the application_
