@@ -1,0 +1,12 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+@model Factory.Models.Machine;
+
+<h1>Here are the @Html.DisplayFor(model => model.MachineName)'s details</h1>
+<hr/>
+<h4>@Html.DisplayNameFor(model => model.MachineName): @Html.DisplayFor(model => model.MachineName)</h4><br>
+<h4>@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(model => model.Status)</h4><br>
+<h4>@Html.DisplayNameFor(model => model.LastInspection): @Html.DisplayFor(model => model.LastInspection)</h4>
