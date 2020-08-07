@@ -24,14 +24,15 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      List<string> statusList = new List<string>{"Operational", "Malfunctioning", "In rapair"};
+      List<string> statusList = new List<string>{"Operational", "Malfunctioning", "In repair"};
       ViewBag.StatusTypes = new SelectList(statusList);
       return View();
     }
 
     [HttpPost]
-    public ActionResult Create(Machine machine)
+    public ActionResult Create(Machine machine, string StatusTypes)
     {
+      machine.Status = StatusTypes;
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
