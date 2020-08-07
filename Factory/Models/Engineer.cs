@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace Factory.Models
@@ -11,8 +12,11 @@ namespace Factory.Models
     }
 
     public int EngineerId { get; set; }
-    public string Name { get; set; }
+    [DisplayName("Name of Engineer")]
+    public string EngineerName { get; set; }
+    [DisplayName("Is Engineer currently repairing a Machine")]
     public bool ActiveIdle { get; set; }
+    [DisplayName("Date of last licence renewal")]
     [DataType(DataType.Date)]
     public DateTime LastLicensed { get; set; }
     public ICollection<EngineerMachine> Machines { get; set; }
