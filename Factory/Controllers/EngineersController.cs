@@ -26,5 +26,17 @@ namespace Factory.Controllers
       ViewBag.MachineId = new SelectList(_db.Categories, "MachineId", "MachineName");
       return View();
     }
+
+    [HttpPost]
+    public ActionResult Create(Imagineer imagineer, int MachineId)
+    {
+      _db.Imagineers.Add(imagineer);
+      if (MachineId != 0)
+      {
+        _db.MachineImagineer.Add(new EngineerMachine() { MachineId = MachineId, ImagineerId = imagineer.ImagineerId });
+      }
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
