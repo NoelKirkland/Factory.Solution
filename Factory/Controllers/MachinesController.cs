@@ -25,7 +25,7 @@ namespace Factory.Controllers
     public ActionResult Create()
     {
       List<string> statusList = new List<string>{"Operational", "Malfunctioning", "In rapair"};
-      ViewBag.StatusTypes = new SelectList(statusList, "Test");
+      ViewBag.StatusTypes = new SelectList(statusList);
       return View();
     }
 
@@ -35,6 +35,15 @@ namespace Factory.Controllers
       _db.Machines.Add(machine);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Machine thisMachine = _db.Machines
+        .Include(machine => machine.Engineers)
+        .ThenInclude(join => join.Engineer)
+        .FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
     }
   }
 }

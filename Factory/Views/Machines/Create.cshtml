@@ -14,8 +14,8 @@
   @Html.LabelFor(model => model.Status)
   @Html.DropDownList("StatusTypes")
 
-  @Html.LabelFor(model => model.LastInspected)
-  @Html.TextBoxFor(model => model.LastInspected, new { type="date"})
+  @Html.LabelFor(model => model.LastInspection)
+  @Html.TextBoxFor(model => model.LastInspection, new { type="date"})
 
   <input type="submit" value="Add this Thing-a-Machine" /> <br>
 }
