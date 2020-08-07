@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ namespace Factory.Models
   {
     public Machine()
     {
-      this.Engineer = new HashSet<EngineerMachine>();
+      this.Engineers = new HashSet<EngineerMachine>();
     }
     public int MachineId { get; set; }
     [DisplayName("Name of Machine")]
@@ -18,6 +19,6 @@ namespace Factory.Models
     [DisplayName("Date of last inspection")]
     [DataType(DataType.Date)]
     public DateTime LastInspected { get; set; }
-    public ICollection<EngineerMachine> Engineer { get; set; }
+    public ICollection<EngineerMachine> Engineers { get; set; }
   }
 }
