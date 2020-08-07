@@ -15,10 +15,10 @@ namespace Factory.Models
     [DisplayName("Name of Thing-a-Machine")]
     public string MachineName { get; set; }
     [DisplayName("Thing-a-Machine Status")]
-    public int Status { get; set; }
+    public string Status { get; set; }
     [DisplayName("Date of last inspection")]
     [DataType(DataType.Date)]
-    public DateTime LastInspected { get; set; }
+    public DateTime LastInspection { get; set; }
     public ICollection<EngineerMachine> Engineers { get; set; }
   }
 }

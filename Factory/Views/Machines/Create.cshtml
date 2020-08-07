@@ -11,11 +11,11 @@
   @Html.LabelFor(model => model.MachineName)
   @Html.TextBoxFor(model => model.MachineName)
 
-  @Html.LabelFor("model => model.Status)
+  @Html.LabelFor(model => model.Status)
   @Html.DropDownList("StatusTypes")
 
   @Html.LabelFor(model => model.LastInspected)
-  @Html.TextBoxFor(model => model.LastInspected)
+  @Html.TextBoxFor(model => model.LastInspected, new { type="date"})
 
   <input type="submit" value="Add this Thing-a-Machine" /> <br>
 }

@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
-using ToDoList.Models;
+using Factory.Models;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
@@ -23,9 +24,17 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      Dictionary<string, int> StatusDict = new Dictionary<string, int>({"Operational", 1}, {"Malfunctioning", 2}, {"In rapair", 3});
-      ViewBag.StatusTypes = StatusDict;
+      List<string> statusList = new List<string>{"Operational", "Malfunctioning", "In rapair"};
+      ViewBag.StatusTypes = new SelectList(statusList, "Test");
       return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Machine machine)
+    {
+      _db.Machines.Add(machine);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }
