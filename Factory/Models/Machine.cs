@@ -12,9 +12,9 @@ namespace Factory.Models
       this.Engineers = new HashSet<EngineerMachine>();
     }
     public int MachineId { get; set; }
-    [DisplayName("Name of Machine")]
+    [DisplayName("Name of Thing-a-Machine")]
     public string MachineName { get; set; }
-    [DisplayName("Machine Status")]
+    [DisplayName("Thing-a-Machine Status")]
     public int Status { get; set; }
     [DisplayName("Date of last inspection")]
     [DataType(DataType.Date)]

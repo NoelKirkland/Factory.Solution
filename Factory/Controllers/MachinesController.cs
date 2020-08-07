@@ -23,6 +23,8 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
+      Dictionary<string, int> StatusDict = new Dictionary<string, int>({"Operational", 1}, {"Malfunctioning", 2}, {"In rapair", 3});
+      ViewBag.StatusTypes = StatusDict;
       return View();
     }
   }
