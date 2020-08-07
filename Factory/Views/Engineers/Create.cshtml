@@ -4,7 +4,7 @@
 
 @model Factory.Models.Imagineer
 
-<h4>Add a new Imagineer</h4>
+<h1>Add a new Imagineer</h1>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.EngineerName)
@@ -23,4 +23,3 @@
 }
 
 <p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
-<p>@Html.ActionLink("Show all categories", "Index")</p>

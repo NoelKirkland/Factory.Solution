@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h1>Add a a Thing-a-Machine that @Html.DisplayFor(model => model.EngineerName) is licenced to build/repair</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.EngineerId)
+
+    @Html.Label("Select Thing-a-Machine")
+    @Html.DropDownList("MachineId")
+
+    <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
