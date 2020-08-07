@@ -63,5 +63,11 @@ namespace Factory.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Delete(int id)
+    {
+      Machine thisMachine =_db.Machines.FirstOrDefault(machines => machines.MachineId ==id);
+      return View(thisMachine);
+    }
   }
 }
