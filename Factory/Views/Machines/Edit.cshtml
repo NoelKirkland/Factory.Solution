@@ -1,0 +1,26 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h1>Edit details of: @Html.DisplayFor(model => model.MachineName)</h1>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.MachineId)
+
+  @Html.LabelFor(model => model.MachineName)
+  @Html.EditorFor(model => model.MachineName)
+
+  @Html.LabelFor(model => model.Status)
+  @Html.DropDownList("StatusTypes")
+
+  @Html.LabelFor(model => model.LastInspection)
+  @Html.TextBoxFor(model => model.LastInspection, new { type="date"})
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to Thing-a-Maching departement", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>
