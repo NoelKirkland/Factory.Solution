@@ -50,7 +50,18 @@ namespace Factory.Controllers
     public ActionResult Edit(int id)
     {
       Machine thisMachine =_db.Machines.FirstOrDefault(machines => machines.MachineId ==id);
+      List<string> statusList = new List<string>{"Operational", "Malfunctioning", "In repair"};
+      ViewBag.StatusTypes = new SelectList(statusList);
       return View(thisMachine);
+    }
+
+    [HttpPost]
+    public ActionResult Edit(Machine machine, string StatusTypes)
+    {
+      machine.Status = StatusTypes;
+      _db.Entry(machine).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
   }
 }

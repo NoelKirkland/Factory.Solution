@@ -10,3 +10,5 @@
 <h4>@Html.DisplayNameFor(model => model.MachineName): @Html.DisplayFor(model => model.MachineName)</h4><br>
 <h4>@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(model => model.Status)</h4><br>
 <h4>@Html.DisplayNameFor(model => model.LastInspection): @Html.DisplayFor(model => model.LastInspection)</h4>
+
+<p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
