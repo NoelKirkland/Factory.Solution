@@ -4,17 +4,21 @@
 
 @model Factory.Models.Engineer
 
-<h1>Add a new Imagineer</h1>
+<h1>Edit Imagineer: @Html.LabelFor(model => model.EngineerName)</h1>
+
 @using (Html.BeginForm())
 {
+
+  @Html.HiddenFor(model => model.EngineerId)
+
   @Html.LabelFor(model => model.EngineerName)
-  @Html.TextBoxFor(model => model.EngineerName)
+  @Html.EditorFor(model => model.EngineerName)
 
   @Html.LabelFor(model => model.ActiveIdle)
   @Html.CheckBoxFor(model => model.ActiveIdle, false)
 
   @Html.LabelFor(model => model.LastLicensed)
-  @Html.TextBoxFor(model => model.LastLicensed, new { type="date"})
+  @Html.EditorFor(model => model.LastLicensed, new { type="date"})
 
   @Html.Label("Select a Thing-a-Machine that this Imagineer is licenced to build/repair")
   @Html.DropDownList("MachineId")

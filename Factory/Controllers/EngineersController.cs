@@ -23,14 +23,14 @@ namespace Factory.Controllers
 
     public ActionResult Create()
     {
-      ViewBag.MachineId = new SelectList(_db.Categories, "MachineId", "MachineName");
+      ViewBag.MachineId = new SelectList(_db.Machines, "MachineId", "MachineName");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Engineer engineer, int MachineId)
     {
-      _db.Engineer.Add(engineer);
+      _db.Engineers.Add(engineer);
       if (MachineId != 0)
       {
         _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });
@@ -41,7 +41,7 @@ namespace Factory.Controllers
 
     public ActionResult Details(int id)
     {
-      Engineer thisEngineer = _db.EngineersController
+      Engineer thisEngineer = _db.Engineers
         .Include(engineer => engineer.Machines)
         .ThenInclude(join => join.Machine)
         .FirstOrDefault(engineer => engineer.EngineerId == id);
