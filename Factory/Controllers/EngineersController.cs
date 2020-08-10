@@ -102,6 +102,12 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
+      var testVar = _db.EngineerMachine.FirstOrDefault(join => join.MachineId == MachineId && join.EngineerId == engineer.EngineerId);
+
+      if(testVar != null)
+      {
+        return RedirectToAction("Details", new {id = engineer.EngineerId});
+      }
       if (MachineId != 0)
       {
       _db.EngineerMachine.Add(new EngineerMachine() { MachineId = MachineId, EngineerId = engineer.EngineerId });

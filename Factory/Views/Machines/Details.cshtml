@@ -11,6 +11,28 @@
 <h4>@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(model => model.Status)</h4><br>
 <h4>@Html.DisplayNameFor(model => model.LastInspection): @Html.DisplayFor(model => model.LastInspection)</h4>
 <br>
+@if(@Model.Engineers.Count == 0)
+{
+  <h4>No Imagineers have yet been licenced to build/repair this Thing-a-Machine yet</h4>
+}
+else
+{
+  <h4>Imagineers that are licenced to build/repair this Thing-a-Machine:</h4>
+  <br>
+  <ul>
+  @foreach(var join in Model.Engineers)
+  {
+    <li>@Html.ActionLink($"{join.Engineer.EngineerName}", "Details", "Engineers", new { id = @join.Engineer.EngineerId })</li>
+    @using (Html.BeginForm("DeleteEngineer", "Machines"))
+    {
+      @Html.Hidden("joinId", @join.EngineerMachineId)
+      @Html.Hidden("engineerId", "Model.EngineerId")
+      <input type="submit" value="Delete"/>
+    }
+  }
+  </ul>
+}
+<br>
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Back to Thing-a-Machine departement", "Index")</p>

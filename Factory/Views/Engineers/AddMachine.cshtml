@@ -2,27 +2,20 @@
   Layout = "_Layout";
 }
 
-@using Factory.Models
 @model Factory.Models.Engineer
 
 <h1>Add a Thing-a-Machine that @Html.DisplayFor(model => model.EngineerName) is licenced to build/repair</h1>
 <hr/>
-@if(@Model.Machines.Count == 0)
-{
-  <h4>You must add a Thing-a-Machine before you can associate it with an Imagineer</h4>
-}
-else
-{
   @using (Html.BeginForm())
-  {
-    @Html.HiddenFor(model => model.EngineerId)
+{
+  @Html.HiddenFor(model => model.EngineerId)
 
-    @Html.Label("Select Thing-a-Machine")
-    @Html.DropDownList("MachineId")
+  @Html.Label("Select Thing-a-Machine")
+  @Html.DropDownList("MachineId")
 
-    <input type="submit" value="Save" />
-  }
+  <input type="submit" value="Save" />
 }
+
 <br>
 <p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
