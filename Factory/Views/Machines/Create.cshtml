@@ -5,20 +5,20 @@
 @model Factory.Models.Machine
 
 <h1>Add a new Thing-a-Machine</h2>
-
+<hr/>
 @using (Html.BeginForm())
 {
   @Html.LabelFor(model => model.MachineName)
   @Html.TextBoxFor(model => model.MachineName)
-
+  <br>
   @Html.LabelFor(model => model.Status)
   @Html.DropDownList("StatusTypes")
-
+  <br>
   @Html.LabelFor(model => model.LastInspection)
   @Html.TextBoxFor(model => model.LastInspection, new { type="date"})
-
+  <br>
   <input type="submit" value="Add this Thing-a-Machine" /> <br>
 }
-
+<br>
 <p>@Html.ActionLink("Back to Thing-a-Maching departement", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

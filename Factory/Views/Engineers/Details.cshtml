@@ -8,15 +8,16 @@
 <hr/>
 <h4>@Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)</h4><br>
 <h4>@Html.DisplayNameFor(model => model.ActiveIdle): @Html.DisplayFor(model => model.ActiveIdle)</h4><br>
-<h4>@Html.DisplayNameFor(model => model.LastLicensed): @Html.DisplayFor(model => model.LastLicensed)</h4>
+<h4>@Html.DisplayNameFor(model => model.LastLicensed): @Html.DisplayFor(model => model.LastLicensed)</h4><br>
 
 @if(@Model.Machines.Count == 0)
 {
-  <p>This Imagineer has not been a Thing-a-Machine specialty yet</p>
+  <h4>This Imagineer has not been assigned a Thing-a-Machine specialty yet</h4>
 }
 else
 {
   <h4>Thing-a-Machines that this Imagineer is licenced to build/repair:</h4>
+  <br>
   <ul>
   @foreach(var join in Model.Machines)
   {
@@ -30,7 +31,9 @@ else
   }
   </ul>
 }
+<br>
 <p>@Html.ActionLink("Add specialty", "AddMachine", new { id = Model.EngineerId })</p>
-<p>@Html.ActionLink("Delete Imagineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Edit Imagineer", "Edit", new { id = Model.EngineerId })</p>
+<p>@Html.ActionLink("Delete Imagineer", "Delete", new { id = Model.EngineerId })</p>
 <p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

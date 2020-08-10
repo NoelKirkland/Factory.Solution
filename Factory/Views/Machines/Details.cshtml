@@ -10,6 +10,8 @@
 <h4>@Html.DisplayNameFor(model => model.MachineName): @Html.DisplayFor(model => model.MachineName)</h4><br>
 <h4>@Html.DisplayNameFor(model => model.Status): @Html.DisplayFor(model => model.Status)</h4><br>
 <h4>@Html.DisplayNameFor(model => model.LastInspection): @Html.DisplayFor(model => model.LastInspection)</h4>
-
+<br>
 <p>@Html.ActionLink("Edit Machine", "Edit", new { id = Model.MachineId })</p>
+<p>@Html.ActionLink("Delete Machine", "Delete", new { id = Model.MachineId })</p>
 <p>@Html.ActionLink("Back to Thing-a-Machine departement", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

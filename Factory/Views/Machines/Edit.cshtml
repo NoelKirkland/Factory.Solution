@@ -4,23 +4,22 @@
 
 @model Factory.Models.Machine
 
-<h1>Edit details of: @Html.DisplayFor(model => model.MachineName)</h1>
-
+<h1>Edit Thing-a-Machine: @Html.DisplayFor(model => model.MachineName)</h1>
+<br>
 @using (Html.BeginForm())
 {
   @Html.HiddenFor(model => model.MachineId)
-
   @Html.LabelFor(model => model.MachineName)
   @Html.EditorFor(model => model.MachineName)
-
+  <br>
   @Html.LabelFor(model => model.Status)
   @Html.DropDownList("StatusTypes")
-
+  <br>
   @Html.LabelFor(model => model.LastInspection)
   @Html.EditorFor(model => model.LastInspection, new { type="date"})
-
+  <br>
   <input type="submit" value="Save" />
 }
-
+<br>
 <p>@Html.ActionLink("Back to Thing-a-Maching departement", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

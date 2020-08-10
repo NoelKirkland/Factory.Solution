@@ -6,17 +6,15 @@
 @model List<Factory.Models.Machine>;
 
 <h1>Thing-a-Machines departement</h1>
-
+<hr/>
 @if (@Model.Count == 0)
 {
   <h3>No Thing-a-Machines have been added yet!</h3>
 } 
-
 @foreach (Machine machine in Model)
 {
   <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
 }
-
+<br>
 <p>@Html.ActionLink("Add new Thing-a-Machines", "Create")</p>
-
 <p>@Html.ActionLink("Home", "Index", "Home")</p>

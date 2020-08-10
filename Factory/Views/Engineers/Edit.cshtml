@@ -5,25 +5,24 @@
 @model Factory.Models.Engineer
 
 <h1>Edit Imagineer: @Html.LabelFor(model => model.EngineerName)</h1>
-
+<hr/>
 @using (Html.BeginForm())
 {
-
   @Html.HiddenFor(model => model.EngineerId)
-
   @Html.LabelFor(model => model.EngineerName)
   @Html.EditorFor(model => model.EngineerName)
-
+  <br>
   @Html.LabelFor(model => model.ActiveIdle)
   @Html.CheckBoxFor(model => model.ActiveIdle, false)
-
+  <br>
   @Html.LabelFor(model => model.LastLicensed)
   @Html.EditorFor(model => model.LastLicensed, new { type="date"})
-
+  <br>
   @Html.Label("Select a Thing-a-Machine that this Imagineer is licenced to build/repair")
   @Html.DropDownList("MachineId")
-
+  <br>
   <input type="submit" value="Add new category" />
 }
-
+<br>
 <p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
+<p>@Html.ActionLink("Home", "Index", "Home")</p>

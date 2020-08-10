@@ -5,11 +5,12 @@
 @model Factory.Models.Engineer
 
 <h1>Are you sure you want to delete Imagineer: @Html.DisplayFor(model => model.EngineerName)</h1>
-
+<hr/>
 @Html.DisplayNameFor(model => model.EngineerName): @Html.DisplayFor(model => model.EngineerName)
 @using (Html.BeginForm())
 {
     <input type="submit" value="Delete" />
 }
+<br>
 <p>@Html.ActionLink("Back to Imagineer departement", "Index")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
