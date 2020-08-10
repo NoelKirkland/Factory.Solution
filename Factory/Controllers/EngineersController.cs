@@ -1,9 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
 using Factory.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Factory.Controllers
 {
@@ -102,9 +102,9 @@ namespace Factory.Controllers
     [HttpPost]
     public ActionResult AddMachine(Engineer engineer, int MachineId)
     {
-      var testVar = _db.EngineerMachine.FirstOrDefault(join => join.MachineId == MachineId && join.EngineerId == engineer.EngineerId);
+      var existingConnection = _db.EngineerMachine.FirstOrDefault(join => join.MachineId == MachineId && join.EngineerId == engineer.EngineerId);
 
-      if(testVar != null)
+      if(existingConnection != null)
       {
         return RedirectToAction("Details", new {id = engineer.EngineerId});
       }
