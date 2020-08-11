@@ -11,7 +11,7 @@
 
 ## Description
 
-This project will the famous Dr. Sneuss keep track of their engineers, as well as their machines, in an easy to use web application. Once set up properly, Dr. Sneuss will be able store data on their engineers, and on their machines, in a local database and will be able to pull up the information they need at any time.
+This project will help the famous Dr. Sneuss keep track of their engineers, as well as their machines, in an easy to use web application. Once set up properly, Dr. Sneuss will be able store data on their engineers, and on their machines, in a local database and will be able to pull up the information they need at any time.
 
 ## User Stories <a name="1"></a>
 
